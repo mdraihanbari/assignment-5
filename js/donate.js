@@ -42,6 +42,8 @@ const handleDonate = (button) => {
     const cardTitle= cardElement.querySelector(".card-title").innerText;
     addToDonationHistory(amountBalance, cardTitle)
     
+    document.getElementById("show-madal-btn").showModal();
+
 
     if(isNaN(amountBalance) || amountBalance <= 0 || navbarBalance < amountBalance){
         alert("Please give the valid input.")
@@ -59,3 +61,18 @@ donateBtns.forEach((btn) => {
     })
 })
     
+
+document.getElementById("show-history-btn").addEventListener("click", ()=>{
+    document.getElementById("show-donation-btn").classList.remove("active-btn");
+    document.getElementById("show-history-btn").classList.add("active-btn");
+    document.getElementById("donation-container").classList.add("hidden");
+    document.getElementById("history-container").classList.remove("hidden");
+});
+
+
+document.getElementById("show-donation-btn").addEventListener("click", ()=>{
+    document.getElementById("show-donation-btn").classList.add("active-btn");
+    document.getElementById("show-history-btn").classList.remove("active-btn");
+    document.getElementById("donation-container").classList.remove("hidden");
+    document.getElementById("history-container").classList.add("hidden");
+})

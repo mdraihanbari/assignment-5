@@ -11,6 +11,11 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .active-btn{
+        background-color: rgb(180, 244, 97);
+      }
+    </style>
   </head>
   <body class="lexend-font">
     <header class="sticky top-0 backdrop-blur-sm pb-2">
@@ -36,17 +41,18 @@
               src="./assets/coin.png"
               alt=""
             />
-            <h2 class="font-semibold"><span id="balance">5500</span> BDT</h2>
+            <h2 class="font-semibold"><span id="balance">50000</span> BDT</h2>
           </div>
         </div>
       </div>
-      <div class="flex justify-center space-x-3 mt-6">
-        <button class="active px-8 py-3 rounded-md">Donation</button>
-        <button class="active px-8 py-3 rounded-md">History</button>
+      <div class="flex justify-center space-x-3 mt-6 ">
+        <button id="show-donation-btn" class="btn active-btn  px-8 py-3 rounded-md">Donation</button>
+        <button id="show-history-btn" class="btn  px-8 py-3 rounded-md">History</button>
       </div>
       <!-- navbar ends here -->
     </header>
     <main>
+      <section id="donation-container">
       <div
         class="p-8 mt-6 max-w-7xl w-11/12 lg:w-10/12 mx-auto lg:flex border justify-between items-center rounded-md card-container gap-4"
       >
@@ -154,14 +160,18 @@
           </button>
         </div>
       </div>
+
+    </section>
+
+
       <section
         id="history-container"
-        class="w-11/12 mx-auto space-y-5 border-2 border-red-500"
+        class=" hidden w-11/12 mx-auto space-y-5  "
       ></section>
       <!-- modal section add -->
       <!-- Open the modal using ID.showModal() method -->
-      <button class="btn" onclick="my_modal_5.showModal()">open modal</button>
-      <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      
+      <dialog id="show-madal-btn" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box text-center">
           <h3 class="text-2xl font-bold mb-2">Congrats!</h3>
           <figure class="flex justify-center">
