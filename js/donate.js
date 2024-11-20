@@ -25,32 +25,32 @@ const addToDonationHistory = (amountBalance, cardTitle) =>{
 
 const handleDonate = (button) => {
     
+    
     const cardElement = button.closest(".card-container");
     const amountBalance = parseFloat(cardElement.querySelector(".input-amount").value);
-    updateNavbarBalance(amountBalance)
-
-    
-
-    const cardBalance= parseFloat(cardElement.querySelector(".card-balance").innerText);
-    const newCardBalance = cardBalance + amountBalance;
-
-    
-
-    cardElement.querySelector(".card-balance").innerText = newCardBalance.toFixed(2);
-    cardElement.querySelector(".input-amount").value = "";
-
-    const cardTitle= cardElement.querySelector(".card-title").innerText;
-    addToDonationHistory(amountBalance, cardTitle)
-    
-    document.getElementById("show-madal-btn").showModal();
-
+    const navbarBalance = parseFloat(document.getElementById("balance").innerText);
 
     if(isNaN(amountBalance) || amountBalance <= 0 || navbarBalance < amountBalance){
-        alert("Please give the valid input.")
-        
+        alert("Please give the valid input.");
+        return;
     }
 
     
+        updateNavbarBalance(amountBalance)
+
+        const cardBalance= parseFloat(cardElement.querySelector(".card-balance").innerText);
+        const newCardBalance = cardBalance + amountBalance;
+    
+        cardElement.querySelector(".card-balance").innerText = newCardBalance.toFixed(2);
+        cardElement.querySelector(".input-amount").value = "";
+    
+        const cardTitle= cardElement.querySelector(".card-title").innerText;
+        addToDonationHistory(amountBalance, cardTitle)
+    
+        document.getElementById("show-madal-btn").showModal();
+    
+    
+
 };
 
 
